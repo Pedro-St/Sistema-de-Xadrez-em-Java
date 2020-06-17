@@ -92,8 +92,7 @@ public class ChessMatch {
 
 		promoted = null;
 		if (movedPiece instanceof Pawn) {
-			if ((movedPiece.getColor() == Color.WHITE && target.getRow() == 0)
-					|| (movedPiece.getColor() == Color.BLACK && target.getRow() == 7)) {
+			if ((movedPiece.getColor() == Color.WHITE && target.getRow() == 0) || (movedPiece.getColor() == Color.BLACK && target.getRow() == 7)) {
 				promoted = (ChessPiece) board.piece(target);
 				promoted = replacePromotedPiece("Q");
 			}
@@ -185,6 +184,7 @@ public class ChessMatch {
 		}
 
 		// SpecialMove En Passant
+		
 		if (p instanceof Pawn) {
 			if (source.getColumn() != target.getColumn() && capturedPiece == null) {
 				Position pawnPosition;
@@ -214,6 +214,7 @@ public class ChessMatch {
 		}
 
 		// #specialMove
+		
 		if (p instanceof King && target.getColumn() == source.getColumn() + 2) {
 			Position sourceT = new Position(source.getRow(), source.getColumn() + 3);
 			Position targeT = new Position(source.getRow(), source.getColumn() + 1);
@@ -223,6 +224,7 @@ public class ChessMatch {
 		}
 
 		// #specialMove
+		
 		if (p instanceof King && target.getColumn() == source.getColumn() - 2) {
 			Position sourceT = new Position(source.getRow(), source.getColumn() - 4);
 			Position targeT = new Position(source.getRow(), source.getColumn() - 1);
